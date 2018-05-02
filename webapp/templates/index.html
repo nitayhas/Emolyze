@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>Emolyze</title>
+        <style>
+          *{
+            margin: 0px;
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+          }
+          body{
+            width: 80%;
+            margin:auto;
+          }
+          html {
+            text-align: center;
+          }
+          h1{
+            background: #00394d;
+            color: white;
+            padding: 15px;
+          }
+          h2{
+            background: #006080;
+            color: white;
+            padding: 7px;
+            text-align: left;
+            font-weight: normal;
+            font-size: 20px;
+          }
+          #table {
+              margin-top:20px;
+              border-collapse: collapse;
+              width: 100%;
+          }
+
+          #table td, #table th {
+              border: 1px solid #ddd;
+              padding: 8px;
+          }
+
+          #table tr:nth-child(even){background-color: #f2f2f2;}
+
+          #table tr:hover {background-color: #ddd;}
+
+          #table th {
+              padding-top: 12px;
+              padding-bottom: 12px;
+              text-align: left;
+              background-color: #4c8eaf;
+              color: white;
+          }
+
+        </style>
+    </head>
+    <body>
+        <h1>Welcome to Emolyze!</h1>
+        <h2>Hello, {{ user.username }}</h1>
+        <table id="table">
+          <tr>
+            <th>Picture</th>
+            <th>Id</th>
+            <th>Total State</th>
+            <th>Last Update</th>
+            <th>Last Seen State</th>
+          </tr>
+          {% for item in sdata %}
+          <tr>
+            <td><img src='{{ item.picture }}' style="width:140px;height:auto;"/></td>
+            <td>{{ item.id }}</td>
+            <td>{{ item.total_state }}</td>
+            <td>{{ item.last_update }}</td>
+            <td>{{ item.last_seen }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+    </body>
+</html>
